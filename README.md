@@ -12,8 +12,6 @@
 
 **Office:** Mackinac Hall C-2-310
 
-**Email:** langanth@gvsu.edu
-
 ### Office Hours:
 
   
