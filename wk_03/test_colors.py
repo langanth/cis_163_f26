@@ -1,14 +1,10 @@
-from colors import *
+from colors import Color
 import pytest
 
 
 @pytest.fixture
 def valid_values():
-    return (
-        (0,0,0),
-        (255,255,255),
-        (125,125,125)
-    )
+    return ((0,125,255),(0,125,255),(0,125,255))
 
 def test_default_color():
     c = Color()
@@ -26,7 +22,7 @@ def test_color():
         assert c.green == green[i]
         assert c.blue == blue[i]
 
-@pytest.mark.parametrize("red,green,blue",valid_values)
+@pytest.mark.parametrize("red,green,blue",((0,125,255),(0,125,255),(0,125,255)))
 def test_color_alt(red, green, blue):
     c = Color(red, green, blue)
     assert c.red == red
