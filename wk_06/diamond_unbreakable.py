@@ -35,6 +35,3 @@ if __name__ == "__main__":
     b.call()
     print(b.b_calls, b.l_calls, b.r_calls, b.t_calls)
     print(B.b_calls)
-
-    words = ''.join(['a','b','c'])
-    print(str(words))
