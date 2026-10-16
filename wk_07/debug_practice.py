@@ -53,12 +53,6 @@ FOR EACH EXERCISE
 #   - more than 30 days late: 5% fee
 #   - more than 7 days late:  2% fee
 #   - otherwise:              no fee
-#
-# Suggested demo path:
-#   1. Put `breakpoint()` (or a breakpoint at the `for` line) in total_due().
-#   2. Use `n` to step over the loop body, printing `total` and `fee`.
-#   3. On the third invoice, use `s` to step INTO late_fee().
-#   4. Print `days_late`, then step line by line and ask: which branch ran?
 # ---------------------------------------------------------------------------
 def late_fee(amount, days_late):
     if days_late > 7:
