@@ -1,7 +1,8 @@
 """
 DEBUGGING PRACTICE
 ==================
-This file contains 7 exercises (4 functions and 3 classes). Each one has a bug.
+This file contains 1 instructor demo plus 7 exercises (4 functions and 3 classes).
+Each one has a bug.
 Your job is NOT to guess the fix by staring at the code.
 Use a debugger to watch what the program actually does, then find the bug.
 
@@ -9,7 +10,7 @@ HOW TO RUN
 ----------
   python debugging_practice.py            # just run it and see what fails
   python -m pdb debugging_practice.py     # start in the command-line debugger
-  (or use the debugger in VS Code / PyCharm / Thonny and set breakpoints)
+  (or use the debugger in VS Code/ set breakpoints)
 
 You can also add this line anywhere to pause execution there:
   breakpoint()
@@ -38,6 +39,43 @@ FOR EACH EXERCISE
   4. Write down: which line is wrong, and why?
   5. Fix it and re-run until you see [PASS].
 """
+
+
+# ===========================================================================
+# DEMO: LIVE WALKTHROUGH (instructor-led)
+# ===========================================================================
+# Use this one to show the whole debugger workflow before students start.
+# It has a helper function (to show `n` vs `s`), a loop (to show variables
+# changing), and a bug that only affects SOME of the data.
+#
+# Goal: calculate the total amount due across a list of invoices, including
+# late fees:
+#   - more than 30 days late: 5% fee
+#   - more than 7 days late:  2% fee
+#   - otherwise:              no fee
+#
+# Suggested demo path:
+#   1. Put `breakpoint()` (or a breakpoint at the `for` line) in total_due().
+#   2. Use `n` to step over the loop body, printing `total` and `fee`.
+#   3. On the third invoice, use `s` to step INTO late_fee().
+#   4. Print `days_late`, then step line by line and ask: which branch ran?
+# ---------------------------------------------------------------------------
+def late_fee(amount, days_late):
+    if days_late > 7:
+        percent = 2
+    elif days_late > 30:
+        percent = 5
+    else:
+        percent = 0
+    return amount * percent / 100
+
+
+def total_due(invoices):
+    total = 0
+    for invoice in invoices:
+        fee = late_fee(invoice["amount"], invoice["days_late"])
+        total += invoice["amount"] + fee
+    return total
 
 
 # ===========================================================================
@@ -207,6 +245,15 @@ def cart_demo():
     return round(cart.total(10), 2)  # second call should match the first
 
 
+def invoice_demo():
+    invoices = [
+        {"amount": 100, "days_late": 0},
+        {"amount": 200, "days_late": 10},
+        {"amount": 300, "days_late": 45},
+    ]
+    return total_due(invoices)
+
+
 def honors_demo():
     student = HonorsStudent("Zoe", "Dr. Lee")
     return student.describe()
@@ -214,6 +261,7 @@ def honors_demo():
 
 def main():
     print("Running checks...\n")
+    check("DEMO. total_due() with late fees", invoice_demo, (), 619)
     check("1. average([10, 20, 30, 40])", average, ([10, 20, 30, 40],), 25.0)
     check("2. find_largest([-5, -2, -9])", find_largest, ([-5, -2, -9],), -2)
     check("3a. bubble_sort([5, 1, 4, 2, 8])", bubble_sort, ([5, 1, 4, 2, 8],), [1, 2, 4, 5, 8])
