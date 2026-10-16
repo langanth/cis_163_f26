@@ -55,6 +55,7 @@ FOR EACH EXERCISE
 #   - otherwise:              no fee
 # ---------------------------------------------------------------------------
 def late_fee(amount, days_late):
+
     if days_late > 7:
         percent = 2
     elif days_late > 30:
