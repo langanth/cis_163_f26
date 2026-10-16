@@ -21,6 +21,7 @@ class Strange:
         self.label = label
             
     def do_stuff(self, other):
+        breakpoint()
         temp1 = other.things[2]
         d1 = temp1.state
         temp2 = self.things[2]
@@ -73,7 +74,7 @@ if __name__ == '__main__':
     print(s2)
     print(s3)
     print('-----end part C output-----\n')
-
+    breakpoint()
     s3.do_stuff(s2)
     s2.do_stuff(s1)
     # Part D Output
@@ -81,7 +82,6 @@ if __name__ == '__main__':
     print(s2)
     print(s3)
     print('-----end part D output-----\n')
-
     s1.things[-1] = w4
     s1.things[0] = w8
     s1.do_stuff(s1)
