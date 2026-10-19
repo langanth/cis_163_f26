@@ -67,6 +67,7 @@ def late_fee(amount, days_late):
 
 def total_due(invoices):
     total = 0
+    breakpoint()
     for invoice in invoices:
         fee = late_fee(invoice["amount"], invoice["days_late"])
         total += invoice["amount"] + fee
