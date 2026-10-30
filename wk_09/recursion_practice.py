@@ -2,11 +2,22 @@
 Take a string and return a new
 string without the vowels
 using recursion
+
+disemvowel('abc') -> 'bc'
 """
 
 def disemvowel(st):
-    pass
+    #Base case: No more string
+    if len(st) == 0:
+        return ''
 
+    #Recursive Case: when there is string if vowel, don't add
+    if st[0].lower() in 'aeiou':
+        return '' + disemvowel(st[1:])
+
+    #Recursive Case: when therei s string, but cosonant, add
+    else:
+        return st[0] + disemvowel(st[1:])
 
 """
 Given a stair case of x amount of steps, determine
@@ -20,7 +31,9 @@ stair_case(4) -> 5
 """
 
 def stair_case(steps):
-    pass
+    if steps == 0 or steps == 1:
+        return 1
+    return stair_case(steps - 1) + stair_case(steps - 2)
 
 
 """
@@ -31,14 +44,21 @@ i.e. add_range(5, 2) -> 5 + 4 + 3 -> 12
 """
 
 def add_range(start, stop):
-    pass
+    
+    # Base Case
+    if start == stop:
+        return 0
+
+    # Recursive Case
+    return start + add_range(start - 1, stop)
 
 """
 Given an integer, add up the values
 that make it up.
 
 sum_digits(78) -> 15
-sum_digits(11) -> bool
+sum_digits(11) -> 2
+sum_digits(100011100011101) -> 8
 
 Extra challenge: No strings
 """
