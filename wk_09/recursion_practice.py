@@ -64,7 +64,11 @@ Extra challenge: No strings
 """
 
 def sum_digits(num):
-    pass
+    # Base
+    if num == 0:
+        return 0
+    # Recursive
+    return (num % 10) + sum_digits(num // 10)
 
 
 """
@@ -76,7 +80,18 @@ comp_list([3,2,1], [1,2,3]) -> False
 """
 
 def comp_list(lsta, lstb):
-    pass
+
+    # Base Case 1
+    if len(lsta) != len(lstb):
+        return False
+
+    # Base Case 2
+    if len(lsta) == 0 and len(lstb) == 0:
+        return True
+
+    if lsta[0] == lstb[0]:
+        return comp_list(lsta[1:], lstb[1:])
+    return False
 
 """
 Given a list, determine of whether or not it
@@ -89,13 +104,27 @@ balance([10, 1, 2, 3, 4]) -> True
 
 """
 
-def balance():
-    pass
+def balance(lst, idx=1):
+    # Base Case
+    if idx >= len(lst):
+        return False
+    
+    # Base Case 2
+    if  sum(lst[:idx]) == sum(lst[idx:]):
+        return True
+
+    # Recursive Case
+    return balance(lst, idx + 1)
 
 
 """
 Given two lists, weave them together, alternating values
+lists do not have to be of equal length
 """
 
 def weave(a, b):
     pass
+
+if __name__ == "__main__":
+    print(balance([10,1,2,3,4]))
+    print([1]+[2])
