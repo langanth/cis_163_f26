@@ -122,9 +122,24 @@ Given two lists, weave them together, alternating values
 lists do not have to be of equal length
 """
 
-def weave(a, b):
-    pass
+def weave(a, b, lst):
+    # Base Case 1
+    if len(a) == 0 and len(b) > 0:
+        lst.extend(b)
+        return lst
+    # Base Case 2
+    if len(a) > 0 and len(b) == 0:
+        lst.extend(a)
+        return lst
+    
+    # Recursive Case
+    lst.append(a[0])
+    return weave(b, a[1:], lst)
+
+    # Recursive Case Alternative
+    # lst.append(a[0])
+    # lst.append(b[0])
+    # weave(a[1:], b[1:], lst)
 
 if __name__ == "__main__":
     print(balance([10,1,2,3,4]))
-    print([1]+[2])
