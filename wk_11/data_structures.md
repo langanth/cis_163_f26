@@ -1,0 +1,87 @@
+# Introduction to Data Structures
+
+## Data Structures
+- What is a data structure?
+	- a method of storing, accessing, and manipulating data
+- Examples:
+	- linked lists
+	- hash maps
+	- red-black trees
+	- stacks and queues
+	- sets
+
+## Terminology
+- Data Structure vs. Abstract Data Type (ADT)
+	- ADT - the logical operation of a type (user's perspective)
+	- Data Structure - an implemented ADT
+## Basic Data Structures
+- Simplest data structure: Arrays
+	- linear collection of items
+	- typically fixed size and contiguous
+	- built into every language
+	- Common operations
+		- get item
+		- set item
+		- get length
+		- clear, isEmpty, find
+- What if we need more flexibility
+	- Allow for dynamic sizes
+		- Vectors
+		- Lists
+- Vectors
+	- what if arrays cold grow?
+	- We need to track the current size of the array, and how many items we have
+	- What happens when we need to add an item while the array is full?
+		- Reallocate
+	- Pros
+		- dynamic sizing
+		- contiguous memory
+		- we still have random access (by index)
+	- Cons
+		- Requires some book keeping
+		- contiguous memory
+		- memory allocations!
+- Lists
+	- Typically referred to as linked lists
+	- singly or doubly linked
+	- Pros
+		- dynamic sizing
+		- non-contiguous memory
+		- certain operations are very fast
+	- Cons
+		- requires many pointers
+		- non-contiguous memory
+		- constantly traversing, no random access
+- Bigger picture on dynamic arrays
+	- vectors and lists do similar things
+	- we can consider them dynamic arrays
+	- Operations
+		- append
+		- insert
+		- remove, pop
+		- find, has
+		- getIndex
+
+## Stacks and Queues
+- Stacks
+	- stacks are an abstract data type
+	- operations
+		- push
+		- pop
+		- isEmpty
+	- Stacks are LIFO - Last in, First Out
+	- Implementation
+		- Stacks are an ADT, how would we implement them?
+			- Arrays?
+			- Vector?
+			- Linked List?
+	- Use
+		- undo
+		- checking that parentheses match
+		- call stack!!!
+- Queues
+	- Stacks, but in reverse
+	- Queues are FIFO - first in, first out
+	- Operations
+		- push (or enqueue)
+		- pop (or dequeue)
